@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class BibliotecaApp {
-
+    // Codigo principal, Codigo Fuente 
     // prestamo = [idPrestamo, nombreUsuario, tituloLibro, diasPrestamo, multaPorDia]
     static ArrayList<ArrayList<Object>> prestamos = new ArrayList<>();
     static Scanner sc = new Scanner(System.in);
