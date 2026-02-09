@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+gimport java.util.ArrayList;
 import java.util.Scanner;
 
 public class BibliotecaApp {
@@ -43,8 +43,78 @@ public class BibliotecaApp {
     // ====== CRUD (por implementar) ======
     static void registrarPrestamo() { /* TODO */ }
     static void mostrarPrestamos() { /* TODO */ }
-    static void buscarPrestamoPorId() { /* TODO */ }
-    static void actualizarPrestamo() { /* TODO */ }
+    static void buscarPrestamoPorId() { 
+        
+    System.out.print("Ingrese el ID del préstamo a buscar: ");
+    int idBuscado = sc.nextInt();
+
+    boolean encontrado = false;
+
+    for (Prestamo p : prestamos) {
+        if (p.id == idBuscado) {
+            System.out.println("----- PRÉSTAMO ENCONTRADO -----");
+            System.out.println("ID: " + p.id);
+            System.out.println("Usuario: " + p.usuario);
+            System.out.println("Libro: " + p.libro);
+            System.out.println("Días de préstamo: " + p.dias);
+            System.out.println("Multa por día: " + p.multa);
+            encontrado = true;
+            break;
+        }
+    }
+
+    if (!encontrado) {
+        System.out.println("Préstamo no encontrado.");
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+    }
+    static void actualizarPrestamo() { 
+    
+        System.out.print("Ingrese el ID del préstamo a actualizar: ");
+        int idBuscado = sc.nextInt();
+        sc.nextLine(); // limpiar buffer
+
+        boolean encontrado = false;
+
+        for (Prestamo p : prestamos) {
+            if (p.id == idBuscado) {
+                encontrado = true;
+
+                System.out.print("Nuevo usuario: ");
+                p.usuario = sc.nextLine();
+
+                System.out.print("Nuevo título del libro: ");
+                p.libro = sc.nextLine();
+
+                System.out.print("Nuevos días de préstamo: ");
+                p.dias = sc.nextInt();
+
+                System.out.print("Nueva multa por día: ");
+                p.multa = sc.nextDouble();
+
+                System.out.println("Préstamo actualizado correctamente.");
+                break;
+            }
+        }
+
+        if (!encontrado) {
+            System.out.println("Préstamo no encontrado.");
+        }
+    
+
+    }
     static void eliminarPrestamo() { /* TODO */ }
 
     // ====== Cálculo (por implementar) ======
