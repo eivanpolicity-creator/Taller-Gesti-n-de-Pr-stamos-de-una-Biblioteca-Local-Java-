@@ -45,7 +45,26 @@ public class BibliotecaApp {
     static void mostrarPrestamos() { /* TODO */ }
     static void buscarPrestamoPorId() { /* TODO */ }
     static void actualizarPrestamo() { /* TODO */ }
-    static void eliminarPrestamo() { /* TODO */ }
+    static void eliminarPrestamo() { 
+           if (prestamos.size() == 0) {
+        System.out.println("No hay préstamos registrados.");
+        return;
+    }
+
+    int id = leerEntero("Ingrese el ID del préstamo a eliminar: ");
+
+    for (int i = 0; i < prestamos.size(); i++) {
+        int idPrestamo = (int) prestamos.get(i).get(0);
+
+        if (idPrestamo == id) {
+            prestamos.remove(i);
+            System.out.println("Préstamo eliminado correctamente.");
+            return;
+        }
+    }
+
+    System.out.println("Préstamo no encontrado.");
+    }
 
     // ====== Cálculo (por implementar) ======
     static void calcularTotalMultas() { /* TODO */ }
