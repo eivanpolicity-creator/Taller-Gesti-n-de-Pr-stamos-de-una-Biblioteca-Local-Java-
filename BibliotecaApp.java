@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class BibliotecaApp{
-    // Mi clase feature
+    // Mi clase feature_Ready
     // prestamo = [idPrestamo, nombreUsuario, tituloLibro, diasPrestamo, multaPorDia]
     static ArrayList<ArrayList<Object>> prestamos = new ArrayList<>();
     static Scanner sc = new Scanner(System.in);
@@ -49,7 +49,7 @@ public class BibliotecaApp{
 
     // ====== CRUD (por implementar) ======
     static void registrarPrestamo() {
-  int id = leerEntero("ID del préstamo: ");
+   int id = leerEntero("ID del préstamo: ");
 
     for (ArrayList<Object> p : prestamos) {
         if ((int) p.get(0) == id) {
@@ -78,7 +78,7 @@ public class BibliotecaApp{
     }
 
     static void mostrarPrestamos() {
-          if (prestamos.isEmpty()) {
+        if (prestamos.isEmpty()) {
         System.out.println("No hay préstamos registrados.");
         return;
     }
