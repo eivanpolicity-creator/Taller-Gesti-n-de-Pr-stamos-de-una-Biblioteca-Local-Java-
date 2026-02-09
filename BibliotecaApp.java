@@ -24,6 +24,7 @@ public class BibliotecaApp{
                 
                 //Tercero
                 case 5 -> eliminarPrestamo();
+                
                 case 6 -> calcularTotalMultas();
 
                 case 7 -> System.out.println("Saliendo...");
@@ -48,30 +49,56 @@ public class BibliotecaApp{
 
     // ====== CRUD (por implementar) ======
     static void registrarPrestamo() {
-        int id = leerEntero("ID del préstamo: ");
-        String usuario = leerTexto("Nombre del usuario: ");
-        String libro = leerTexto("Título del libro: ");
-        int dias = leerEntero("Días de préstamo: ");
-        double multa = leerEntero("Multa por día: ");
-        
-        ArrayList<Object> prestamo = new ArrayList<>();
-        prestamo.add(id);
-        prestamo.add(usuario);
-        prestamo.add(libro);
-        prestamo.add(dias);
-        prestamo.add(multa);
-        prestamos.add(prestamo);
-        System.out.println("Préstamo registrado.");
+  int id = leerEntero("ID del préstamo: ");
+
+    for (ArrayList<Object> p : prestamos) {
+        if ((int) p.get(0) == id) {
+            System.out.println("Ya existe un préstamo con ese ID.");
+            return;
+        }
+    }
+
+    String usuario = leerTexto("Nombre del usuario: ");
+    String libro = leerTexto("Título del libro: ");
+    int dias = leerEntero("Días de préstamo: ");
+
+    System.out.print("Multa por día: ");
+    double multa = Double.parseDouble(sc.nextLine().trim());
+
+    ArrayList<Object> prestamo = new ArrayList<>();
+    prestamo.add(id);
+    prestamo.add(usuario);
+    prestamo.add(libro);
+    prestamo.add(dias);
+    prestamo.add(multa);
+
+    prestamos.add(prestamo);
+
+    System.out.println("Préstamo registrado correctamente.");
     }
 
     static void mostrarPrestamos() {
-        if (prestamos.isEmpty()) {
-            System.out.println("No hay préstamos registrados.");
-            return;
-        }
-        for (ArrayList<Object> p : prestamos) {
-            System.out.println(p);
-        }
+          if (prestamos.isEmpty()) {
+        System.out.println("No hay préstamos registrados.");
+        return;
+    }
+
+    System.out.println("=== LISTA DE PRÉSTAMOS ===");
+
+    for (ArrayList<Object> p : prestamos) {
+        int id = (int) p.get(0);
+        String usuario = (String) p.get(1);
+        String libro = (String) p.get(2);
+        int dias = (int) p.get(3);
+        double multa = (double) p.get(4);
+
+        System.out.println("----------------------------");
+        System.out.println("ID: " + id);
+        System.out.println("Usuario: " + usuario);
+        System.out.println("Libro: " + libro);
+        System.out.println("Días: " + dias);
+        System.out.println("Multa por día: $" + multa);
+    }
     }
 
     static void buscarPrestamoPorId() {
