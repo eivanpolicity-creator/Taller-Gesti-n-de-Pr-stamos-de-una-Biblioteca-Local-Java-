@@ -67,7 +67,21 @@ public class BibliotecaApp {
     }
 
     // ====== Cálculo (por implementar) ======
-    static void calcularTotalMultas() { /* TODO */ }
+    static void calcularTotalMultas() {  if (prestamos.size() == 0) {
+        System.out.println("No hay préstamos registrados.");
+        return;
+    }
+
+    double total = 0;
+
+    for (int i = 0; i < prestamos.size(); i++) {
+        int dias = (int) prestamos.get(i).get(3);
+        double multa = (double) prestamos.get(i).get(4);
+
+        total = total + (dias * multa);
+    }
+
+    System.out.println("Total de multas acumuladas: $" + total); }
 
     // ====== Utilidades mínimas ======
     static int leerEntero(String msg) {
