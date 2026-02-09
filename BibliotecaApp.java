@@ -3,9 +3,7 @@ import java.util.Scanner;
 
 public class BibliotecaApp{
     // Mi clase Main
-
-
-    
+    //Cambio Prueba  
     // prestamo = [idPrestamo, nombreUsuario, tituloLibro, diasPrestamo, multaPorDia]
     static ArrayList<ArrayList<Object>> prestamos = new ArrayList<>();
     static Scanner sc = new Scanner(System.in);
